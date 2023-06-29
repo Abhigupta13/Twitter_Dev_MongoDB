@@ -17,6 +17,14 @@ class TweetRepository{
             throw{error}
         }
     }
+    async getAll(offset,limit){
+        try {
+            const tweet = await Tweet.find().skip(offset).limit(limit);
+            return tweet;
+        } catch (error) {
+            throw{error}
+        }
+    }
     async getWithComments(id) {
         try {
             const tweet = await Tweet.findById(id).populate({
@@ -24,7 +32,7 @@ class TweetRepository{
                 // populate: {
                 //     path: 'comments'
                 // }
-            })   // .lean();
+            }).lean();       // returns plain javascript object not mongoose object
             return tweet;
         } catch (error) {
             console.log(error);
