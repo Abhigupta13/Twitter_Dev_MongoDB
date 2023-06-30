@@ -46,13 +46,6 @@ class TweetRepository{
             throw{error}
         }
     }
-    async update(tweetId,data){
-        try {
-            const tweet = await Tweet.findByIdAndUpdate(tweetId,data,{new:true});
-            return tweet;
-        } catch (error) {
-            throw{error}
-        }
-    }
+    
 }
 module.exports =TweetRepository;
