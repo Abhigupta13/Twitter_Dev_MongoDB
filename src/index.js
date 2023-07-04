@@ -3,7 +3,7 @@ import bodyParser from 'body-parser'
 import connect from './config/database.js'
 import apiRoutes from './routes/index.js'
 
-import {UserRespository,TweetRepository} from './repository/index.js'
+import {UserRepository,TweetRepository} from './repository/index.js'
 import {LikeService} from './services/index.js'
 const app = express();
 const PORT=3000;
@@ -18,7 +18,7 @@ app.listen(PORT,async()=>{
     await connect();
     console.log('MongoDB connected');
     
-    // const userRepo = new UserRespository();
+    // const userRepo = new UserRepository();
     // const tweetRepo = new TweetRepository();
     // const tweets = await tweetRepo.getAll(0,10);
     // const users = await userRepo.getAll(0,10);
