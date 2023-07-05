@@ -8,7 +8,7 @@ import { signup,login } from '../../controller/auth-controller.js';
 import{authenticate } from '../../middlewares/authenticate.js'
 const router = express.Router();
 
-router.post('/tweets',authenticate, createTweet);
+router.post('/tweets',createTweet);
 router.get('/tweets/:id', getTweet);
 
 router.post('/likes/toggle',toggleLike);
