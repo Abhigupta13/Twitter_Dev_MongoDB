@@ -9,7 +9,7 @@ class TweetRepository extends CrudRepository{
             const tweet = await Tweet.create(data);
             return tweet;
         } catch (error) {
-            throw{error}
+            throw error
         }
     }
     async getAll(offset,limit){
@@ -17,7 +17,7 @@ class TweetRepository extends CrudRepository{
             const tweet = await Tweet.find().skip(offset).limit(limit);
             return tweet;
         } catch (error) {
-            throw{error}
+            throw error;
         }
     }
     async getWithComments(id) {
@@ -33,7 +33,8 @@ class TweetRepository extends CrudRepository{
             }).lean();       // returns plain javascript object not mongoose object
             return tweet;
         } catch (error) {
-            console.log(error);
+           console.log(error);
+             throw{error};
         }
     }
     async find(id) {
